@@ -8,17 +8,27 @@
 </head>
 <body>
 <h1>Andzej's Register Form</h1>
-<form action="guru_register" method="post">
-			<table style="with: 75%">
+
+<form action="create">
+
+			<table>
 				<tr>
-					<td>User name</td>
-					<td><input type="text" name="user_name" /></td>
+					<td>ID</td>
+					<td><input type="text" name="id" /> </td>
 				</tr>
 					<tr>
-					<td>Password</td>
-					<td><input type="password" name="password" /></td>
+					<td>NAME</td>
+					<td><input type="text" name="name" /> </td>
+				</tr>
+				<tr>
+					<td>TECH</td>
+					<td><input type="text" name="tech" /> </td>
+				</tr>
+				<tr>
+				<td> <input type="submit"> </td>
 				</tr>
 				</table>
-			<input type="submit" value="Submit" /></form>
+		
+</form>
 </body>
 </html>

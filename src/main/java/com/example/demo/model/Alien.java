@@ -8,23 +8,56 @@ public class Alien {
 	@Id
 	private int id;
 	private String name;
+	private String tech;
 	
-	public int getAid() {
+	
+	
+	
+	public int getId() {
 		return id;
 	}
-	public void setAid(int aid) {
-		this.id = aid;
+
+
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getAname() {
+
+
+
+
+	public String getName() {
 		return name;
 	}
-	public void setAname(String aname) {
-		this.name = aname;
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
+
+
+
+
+	public String getTech() {
+		return tech;
+	}
+
+
+
+
+	public void setTech(String tech) {
+		this.tech = tech;
+	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "Alien [aid=" + id + ", aname=" + name + "]";
+		return "Alien [aid=" + id + ", name=" + name + "]";
 	}
 	
 	
