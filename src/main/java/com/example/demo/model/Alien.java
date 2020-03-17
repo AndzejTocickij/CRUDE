@@ -18,8 +18,6 @@ public class Alien {
 	}
 
 
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
