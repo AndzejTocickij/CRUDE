@@ -2,10 +2,11 @@ package com.example.demo.controller;
 
 import javax.validation.Valid;
 
-import org.apache.catalina.realm.JNDIRealm.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,8 +48,16 @@ public class AlienController {
 		mv.addObject(alien);
 		return mv;
 	}
+	
+	// show object by it's ID
+	@RequestMapping(value="/getAlien/{id}")
+	public ResponseEntity<Alien> getAlienById(@PathVariable("id") int userId)  {
+		Alien alien = repo.findById(userId)
+				.orElseThrow(() ->  new IllegalArgumentException() ) ;
+		return ResponseEntity.ok().body(alien);
+	}
 
-	// to update existing object
+	// to update existing object by id
 	@PutMapping(value="/update/{id}")
 	public ResponseEntity<Alien> update(@PathVariable("id") int id, @Valid @RequestBody Alien userDetails) {
 		Alien alien = repo.findById(id).orElseThrow(() -> new IllegalArgumentException() );
@@ -58,4 +67,14 @@ public class AlienController {
 		final Alien updatedAlien = repo.save(alien);
 		return ResponseEntity.ok(updatedAlien);
 	}
+	
+	// to delete existing object by id
+	@DeleteMapping(value="/delete/{id}")
+	public String deleteAlien(@PathVariable("id") int userId) {
+		Alien alien = repo.findById(userId).orElseThrow(() -> new IllegalArgumentException("User not foind " + userId) );
+		repo.delete(alien);
+		return "User has been deleted.";
+		
+	}
+	
 }
